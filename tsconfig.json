@@ -1,21 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "system",  // Измените на систему модулей, поддерживающую `outFile`
-    "outFile": "./dist/index.js",  // Указывает, что выходной файл будет одним
-    //"declarationDir": "./dist",  // Указывает директорию для деклараций
-    "lib": ["ES2020", "DOM"],
-    "skipLibCheck": true,
-    "strict": true,
-    "moduleResolution": "Node",
+    "module": "NodeNext",
     "outDir": "./dist",
     "rootDir": "./src",
     "declaration": true,
-    "noEmit": false,
-    //"isolatedModules": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "moduleResolution": "NodeNext",
+
   },
   "include": ["src/**/*"]
 }

@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-react-pretty-module-classnames",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Adds the filename (component) without the `-module` suffix to the class names of React CSS modules.",
   "type": "module",
   "main": "dist/index.js",
@@ -29,7 +29,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "rm -rf ./dist && tsc"
+    "build": "rm -rf ./dist && tsc",
+    "publish": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
