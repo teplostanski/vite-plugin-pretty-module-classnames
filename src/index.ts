@@ -36,14 +36,14 @@ function sanitizeModuleClassname(
 }
 
 /**
- * Adds the filename (component) without the -module suffix to the class names of React CSS modules.
+ * Adds the filename without the -module suffix to the class names of CSS modules.
  * It customizes the generateScopedName function to use a sanitized version of the filename, class name, and a hash.
  *
  * @returns {Plugin} A Vite plugin object with a custom configuration for CSS modules.
  */
 export default function PrettyModuleClassnames(): Plugin {
   return {
-    name: 'vite-plugin-react-pretty-module-classnames',
+    name: 'vite-plugin-pretty-module-classnames',
     /**
      * Modifies the Vite configuration object to include custom settings for CSS module class name generation.
      * It checks if generateScopedName is already set by the user and throws an error if so.
@@ -59,7 +59,7 @@ export default function PrettyModuleClassnames(): Plugin {
         config.css.modules.generateScopedName
       ) {
         throw new Error(
-          'Custom settings for generateScopedName are already set. The vite-plugin-react-pretty-module-classnames plugin cannot be used with other generateScopedName settings.'
+          'Custom settings for generateScopedName are already set. The vite-plugin-pretty-module-classnames plugin cannot be used with other generateScopedName settings.'
         );
       }
 

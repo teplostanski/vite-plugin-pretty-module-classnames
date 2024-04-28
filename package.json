@@ -1,7 +1,7 @@
 {
-  "name": "vite-plugin-react-pretty-module-classnames",
-  "version": "1.0.6",
-  "description": "Adds the filename (component) without the `-module` suffix to the class names of React CSS modules.",
+  "name": "vite-plugin-pretty-module-classnames",
+  "version": "1.0.7",
+  "description": "Adds the filename without the `-module` suffix to the class names of CSS modules.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,7 @@
     "vite",
     "vite-plugin",
     "plugin",
-    "vite-plugin-react",
+    "vite-plugin",
     "css",
     "scss",
     "css module",
@@ -21,9 +21,9 @@
     "css module name",
     "scss module class name"
   ],
-  "homepage": "https://github.com/teplostanski/vite-plugin-react-pretty-module-classnames#readme",
-  "bugs": "https://github.com/teplostanski/vite-plugin-react-pretty-module-classnames/issues",
-  "repository": "https://github.com/teplostanski/vite-plugin-react-pretty-module-classnames",
+  "homepage": "https://github.com/teplostanski/vite-plugin-pretty-module-classnames#readme",
+  "bugs": "https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues",
+  "repository": "https://github.com/teplostanski/vite-plugin-pretty-module-classnames",
   "author": {
     "name": "Igor Teplostanski",
     "email": "teplostanski@yandex.ru",
