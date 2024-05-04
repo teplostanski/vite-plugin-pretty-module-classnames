@@ -1,6 +1,22 @@
-# vite-plugin-pretty-module-classnames
+<div align='center'>
+<h1>vite-plugin-pretty-module-classnames</h1>
+
+<img alt="NPM Version" src="https://img.shields.io/npm/v/vite-plugin-pretty-module-classnames?style=for-the-badge">
+<img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=for-the-badge">
+<img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=for-the-badge">
+
+
+<br>
 
 Adds the filename without the `-module` suffix to the class names of CSS modules.
+
+<p>
+Included in the <a href='https://github.com/vitejs/awesome-vite'>Awesome Vite.js list <img src='https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg' alt='Awesome'></a>
+</p>
+</div>
+
+## Features
+- Framework-agnostic
 
 ## Why Use This?
 
