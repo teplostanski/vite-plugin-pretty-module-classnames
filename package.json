@@ -1,9 +1,10 @@
 {
   "name": "vite-plugin-pretty-module-classnames",
-  "version": "1.0.7",
-  "description": "Adds the filename without the `-module` suffix to the class names of CSS modules.",
+  "version": "1.1.0",
+  "description": "Adds the filename without the -module suffix to the class names of CSS modules.",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.esm.mjs",
   "types": "dist/index.d.ts",
   "keywords": [
     "vite",
@@ -40,12 +41,13 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
+    "build": "rm -rf ./dist && vite build",
     "publish": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
     "typescript": "^5.2.2",
-    "vite": "^5.2.10"
+    "vite": "^5.2.10",
+    "vite-plugin-dts": "^3.9.0"
   }
 }
