@@ -24,7 +24,10 @@
   ],
   "homepage": "https://github.com/teplostanski/vite-plugin-pretty-module-classnames#readme",
   "bugs": "https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues",
-  "repository": "https://github.com/teplostanski/vite-plugin-pretty-module-classnames",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teplostanski/vite-plugin-pretty-module-classnames.git"
+  },
   "author": {
     "name": "Igor Teplostanski",
     "email": "teplostanski@yandex.ru",
