@@ -4,7 +4,7 @@
 <img alt="NPM Version" src="https://img.shields.io/npm/v/vite-plugin-pretty-module-classnames?style=for-the-badge">
 <img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=for-the-badge">
 <img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=for-the-badge">
-
+<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/vite-plugin-pretty-module-classnames?style=for-the-badge">
 
 <br>
 
@@ -16,8 +16,10 @@ Included in the <a href='https://github.com/vitejs/awesome-vite'>Awesome Vite.js
 </div>
 
 ## Features
+
 - Framework-agnostic
-  - Support: Vanilla, React, Vue
+  - Tested: without frameworks, React, Vue
+  - Potentially works with any framework. If you have any problems, write to the [Issue](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues)
 - Support CommonJS and ES Modules
 - Support Vite 2.x
 
@@ -31,7 +33,7 @@ Fortunately, the `vite-plugin-pretty-module-classnames` provides a solution to t
 
 ```js
 // vite.config.js
-import PrettyModuleClassnames from 'vite-plugin-pretty-module-classnames';
+import PrettyModuleClassnames from "vite-plugin-pretty-module-classnames";
 
 export default defineConfig({
   plugins: [PrettyModuleClassnames()],
