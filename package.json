@@ -45,7 +45,7 @@
   ],
   "scripts": {
     "build": "rm -rf ./dist && vite build",
-    "publish": "npm run build"
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",

@@ -1,8 +1,8 @@
-import type { Plugin, UserConfig } from 'vite';
+import type { Plugin, UserConfig } from "vite";
 import { createHash } from "crypto";
 
 function getHash(input: string): string {
-  return createHash('sha256').update(input).digest('hex').slice(0, 5);
+  return createHash("sha256").update(input).digest("hex").slice(0, 5);
 }
 
 /**
@@ -18,25 +18,20 @@ function sanitizeModuleClassname(
   name: string,
   filename: string | undefined
 ): string {
-  if (typeof filename !== 'string') {
-    throw new Error('The filename must be string and cannot be undefined.');
+  if (typeof filename !== "string") {
+    throw new Error("The filename must be string and cannot be undefined.");
   }
 
-  let sanitizedName: string;
+  const parts = filename.split("?")[0].split("/");
+  const lastSegment = parts.pop();
 
-  if (filename.includes('.vue')) {
-    const parts = filename.split('?')[0].split('/');
-    const lastSegment = parts.pop();
-    sanitizedName = lastSegment ? lastSegment.replace(/\.vue$/, '') : '';
-  } else {
-    const parts = filename.split('/');
-    const lastSegment = parts.pop();
-    sanitizedName = lastSegment 
-      ? lastSegment.replace(/\b.module\b/, '').replace(/\.\w+$/, '') 
-      : '';
+  if (!lastSegment) {
+    throw new Error("Filename must include a valid file name.");
   }
 
-  const classname = `${sanitizedName}__${name}`;
+  const baseFilename = lastSegment.replace(/(\.vue|\.module)?(\.\w+)$/, "");
+
+  const classname = `${baseFilename}__${name}`;
   const hash = getHash(`${classname}`);
 
   return `${classname}_${hash}`;
@@ -50,7 +45,7 @@ function sanitizeModuleClassname(
  */
 export default function PrettyModuleClassnames(): Plugin {
   return {
-    name: 'vite-plugin-pretty-module-classnames',
+    name: "vite-plugin-pretty-module-classnames",
     /**
      * Modifies the Vite configuration object to include custom settings for CSS module class name generation.
      * It checks if generateScopedName is already set by the user and throws an error if so.
@@ -62,11 +57,11 @@ export default function PrettyModuleClassnames(): Plugin {
      */
     config(config: UserConfig, {}) {
       if (
-        typeof config.css?.modules === 'object' &&
+        typeof config.css?.modules === "object" &&
         config.css.modules.generateScopedName
       ) {
         throw new Error(
-          'Custom settings for generateScopedName are already set. The vite-plugin-pretty-module-classnames plugin cannot be used with other generateScopedName settings.'
+          "Custom settings for generateScopedName are already set. The vite-plugin-pretty-module-classnames plugin cannot be used with other generateScopedName settings."
         );
       }
 
