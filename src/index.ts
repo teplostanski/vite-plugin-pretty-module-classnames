@@ -22,12 +22,19 @@ function sanitizeModuleClassname(
     throw new Error('The filename must be string and cannot be undefined.');
   }
 
-  const sanitizedName =
-    filename
-      .split('/')
-      .pop()
-      ?.replace(/\b.module\b/, '')
-      ?.replace(/\.\w+$/, '') ?? '';
+  let sanitizedName: string;
+
+  if (filename.includes('.vue')) {
+    const parts = filename.split('?')[0].split('/');
+    const lastSegment = parts.pop();
+    sanitizedName = lastSegment ? lastSegment.replace(/\.vue$/, '') : '';
+  } else {
+    const parts = filename.split('/');
+    const lastSegment = parts.pop();
+    sanitizedName = lastSegment 
+      ? lastSegment.replace(/\b.module\b/, '').replace(/\.\w+$/, '') 
+      : '';
+  }
 
   const classname = `${sanitizedName}__${name}`;
   const hash = getHash(`${classname}`);

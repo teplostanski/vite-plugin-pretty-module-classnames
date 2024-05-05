@@ -17,6 +17,7 @@ Included in the <a href='https://github.com/vitejs/awesome-vite'>Awesome Vite.js
 
 ## Features
 - Framework-agnostic
+  - Support: Vanilla, React, Vue
 - Support CommonJS and ES Modules
 - Support Vite 2.x
 
