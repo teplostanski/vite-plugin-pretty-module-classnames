@@ -44,8 +44,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "rm -rf ./dist && vite build",
-    "prepublish": "npm run build"
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
