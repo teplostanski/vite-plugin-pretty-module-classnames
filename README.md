@@ -40,4 +40,8 @@ export default defineConfig({
 });
 ```
 
-## License [MIT](./LICENSE)
+## Contributing
+
+Before you contribute to the development of the project, read the [rules](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/blob/main/CONTRIBUTING.md).
+
+## License [MIT](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/blob/main/LICENSE)
