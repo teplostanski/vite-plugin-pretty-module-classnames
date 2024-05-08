@@ -5,6 +5,11 @@
 <img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=for-the-badge">
 <img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=for-the-badge">
 <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/vite-plugin-pretty-module-classnames?style=for-the-badge">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">
+<img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">
+<img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">
+
 
 <br>
 
