@@ -1,22 +1,40 @@
 <div align='center'>
 <h1>vite-plugin-pretty-module-classnames</h1>
 
-<img alt="NPM Version" src="https://img.shields.io/npm/v/vite-plugin-pretty-module-classnames?style=for-the-badge">
-<img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=for-the-badge">
-<img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=for-the-badge">
+[<img alt="NPM Version" src="https://img.shields.io/npm/v/vite-plugin-pretty-module-classnames?style=for-the-badge">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+[<img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=for-the-badge">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+[<img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=for-the-badge">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+[<img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/vite-plugin-pretty-module-classnames?style=for-the-badge">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+[<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames)
+[<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames)
+[<img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues)
+[<img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/pulls)
 
+</a>
 
 <br>
+<br>
 
-Adds the filename without the `-module` suffix to the class names of CSS modules.
+<h3>Adds the filename without the <code>-module</code> suffix to the class names of CSS modules.</h3>
 
 <p>
 Included in the <a href='https://github.com/vitejs/awesome-vite'>Awesome Vite.js list <img src='https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg' alt='Awesome'></a>
 </p>
 </div>
 
+## Install
+
+[npmjs.com](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+
+```bash
+npm install -D vite-plugin-pretty-module-classnames
+```
+
 ## Features
+
 - Framework-agnostic
+- Support CommonJS and ES Modules
+- Support Vite 2.x
 
 ## Why Use This?
 
@@ -28,7 +46,7 @@ Fortunately, the `vite-plugin-pretty-module-classnames` provides a solution to t
 
 ```js
 // vite.config.js
-import PrettyModuleClassnames from 'vite-plugin-pretty-module-classnames';
+import PrettyModuleClassnames from "vite-plugin-pretty-module-classnames";
 
 export default defineConfig({
   plugins: [PrettyModuleClassnames()],
