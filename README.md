@@ -1,11 +1,7 @@
 <div align='center'>
 <h1>vite-plugin-pretty-module-classnames</h1>
 
-<a href="https://npmjs.com/package/vite-plugin-pretty-module-classnames">
-  <img alt="NPM Version" src="https://img.shields.io/npm/v/vite-plugin-pretty-module-classnames?style=for-the-badge">
-  <img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=for-the-badge">
-  <img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=for-the-badge">
-  <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/vite-plugin-pretty-module-classnames?style=for-the-badge">
+<a href="https://npmjs.com/package/vite-plugin-pretty-module-classnames"><img alt="NPM Version" src="https://img.shields.io/npm/v/vite-plugin-pretty-module-classnames?style=for-the-badge"><img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=for-the-badge"><img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=for-the-badge"><img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/vite-plugin-pretty-module-classnames?style=for-the-badge">
 </a>
 <a href="https://github.com/teplostanski/vite-plugin-pretty-module-classnames">
   <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/teplostanski/vite-plugin-pretty-module-classnames?style=for-the-badge">
