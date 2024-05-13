@@ -33,6 +33,8 @@ npm install -D vite-plugin-pretty-module-classnames
 ## Features
 
 - Framework-agnostic
+  - Tested: without frameworks, React, Vue
+  - Potentially works with any framework. If you have any problems, write to the [Issue](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues)
 - Support CommonJS and ES Modules
 - Support Vite 2.x
 
@@ -53,4 +55,14 @@ export default defineConfig({
 });
 ```
 
-## License [MIT](./LICENSE)
+## Contributing
+
+Before you contribute to the development of the project, read the [rules](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/blob/main/CONTRIBUTING.md).
+
+<h2>
+  License
+  <a href="https://github.com/teplostanski/vite-plugin-pretty-module-classnames/blob/main/LICENSE">MIT</a>
+  <span> | </span>
+  <strong>Fund</strong>
+  <a href="https://donate.teplostanski.dev"> this project</a>
+</h2>
