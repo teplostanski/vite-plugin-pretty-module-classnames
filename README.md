@@ -1,10 +1,10 @@
 <div align='center'>
 <h1>vite-plugin-pretty-module-classnames</h1>
 
-[<img alt="NPM Version" src="https://img.shields.io/npm/v/vite-plugin-pretty-module-classnames?style=flat-square">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
-[<img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=flat-square&color=pink">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+[<img alt="NPM Version" src="https://img.shields.io/npm/v/vite-plugin-pretty-module-classnames?style=flat-square&color=07912E">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+[<img alt="NPM License" src="https://img.shields.io/npm/l/vite-plugin-pretty-module-classnames?style=flat-square&color=D3748F">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
 [<img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=flat-square">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
-[<img alt="NPM Downloads" src="https://img.shields.io/npm/dw/vite-plugin-pretty-module-classnames?style=flat-square">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+[<img alt="NPM Downloads" src="https://img.shields.io/npm/dw/vite-plugin-pretty-module-classnames?style=flat-square&color=7F78D1">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
 [<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/teplostanski/vite-plugin-pretty-module-classnames?style=flat-square">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames)
 [<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/teplostanski/vite-plugin-pretty-module-classnames?style=flat-square">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames)
 [<img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/teplostanski/vite-plugin-pretty-module-classnames?style=flat-square">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues)
