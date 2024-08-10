@@ -45,10 +45,10 @@ Fortunately, the `vite-plugin-pretty-module-classnames` provides a solution to t
 
 ```js
 // vite.config.js
-import PrettyModuleClassnames from "vite-plugin-pretty-module-classnames";
+import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
 
 export default defineConfig({
-  plugins: [PrettyModuleClassnames()],
+  plugins: [prettyModuleClassnames()],
 });
 ```
 
