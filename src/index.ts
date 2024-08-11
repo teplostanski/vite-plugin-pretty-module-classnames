@@ -46,8 +46,8 @@ function sanitizeModuleClassname(
  * It customizes the generateScopedName function to use a sanitized version of the filename, class name, and a hash.
  * If the `lineNumber` option is set to true, the line number is added to the generated class name.
  *
- * @param {Object} options - Plugin options.
- * @param {boolean} options.lineNumber - Whether to include the line number in the generated class name.
+ * @prop {Object} `options` - Plugin options.
+ * @prop {boolean} `options.lineNumber` - Whether to include the line number in the generated class name. @default false
  * @returns {Plugin} A Vite plugin object with a custom configuration for CSS modules.
  */
 export default function PrettyModuleClassnames(options: { lineNumber?: boolean } = {}): Plugin {
@@ -62,7 +62,7 @@ export default function PrettyModuleClassnames(options: { lineNumber?: boolean }
      * @throws {Error} Throws an error if generateScopedName is already defined in the user's configuration.
      * @returns {UserConfig} A modified Vite configuration object with custom settings for CSS module class name generation.
      */
-    config(config: UserConfig, {}) {
+    config(config: UserConfig): UserConfig {
       if (
         typeof config.css?.modules === "object" &&
         config.css.modules.generateScopedName
@@ -78,7 +78,7 @@ export default function PrettyModuleClassnames(options: { lineNumber?: boolean }
         modules: {
           ...config.css?.modules,
           generateScopedName: (name: string, filename: string, css: string) => {
-            let lineNumber;
+            let lineNumber: number | undefined;
             if (options.lineNumber) {
               const lines = css.split('\n');
               const match = new RegExp(`\\.${name}\\b`);
