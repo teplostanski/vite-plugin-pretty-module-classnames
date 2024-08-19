@@ -3,14 +3,18 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: "/"
-    schedule:
-      interval: daily
-      time: "01:00"
-    versioning-strategy: auto
-    open-pull-requests-limit: 10
-    # Security Advisories 
-    security-advisories:
-      allow: "security-advisories"
-    # Dependency Updates 
-    dependency-updates:
-      allow: "security-updates"
+    # Создаем группу "Frontend" для обновления всех фронтенд-зависимостей
+    groups:
+      - name: Frontend
+        # Определяем, что эта группа относится к обновлениям версий
+        applies-to: version-updates
+        # Включаем в группу зависимости, которые начинаются с "react-"
+        patterns:
+          - react-*
+        # Исключаем зависимость "react-router-dom"
+        exclude-patterns:
+          - react-router-dom
+        # Ограничиваем группу только минорными и патч-обновлениями
+        update-types:
+          - minor
+          - patch 
