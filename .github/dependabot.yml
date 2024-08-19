@@ -1,0 +1,33 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "01:00"
+    # Указываем, что обновлять только минорные и патч версии
+    # Для мажорных обновлений требуется ваше одобрение
+    versioning-strategy:
+      # Use 'auto' to automatically update to the latest minor version, or 'branch' to create a branch for each version.
+      minor: auto
+      major: branch
+      patch: auto
+    # Используем `review` - для Pull-запросов требуются ваши комментарии и одобрения
+    open-pull-requests-limit: 10
+    # Ищем уязвимости
+    # "allow" - допускаются только обновления безопасных версий.
+    # "ignore" - игнорируется все.
+    # "insecure" - разрешается обновление до любой версии.
+    # "auto" - автоматически обновляет до безопасной версии (использует "allow" по умолчанию).
+    # "never" - обновление отключено. 
+    security-advisories:
+      allow: "security-advisories"
+    # "allow" - допускаются только обновления безопасных версий.
+    # "ignore" - игнорируется все.
+    # "insecure" - разрешается обновление до любой версии.
+    # "auto" - автоматически обновляет до безопасной версии (использует "allow" по умолчанию).
+    # "never" - обновление отключено. 
+    dependency-updates:
+      # Ограничиваем Dependabot только обновлениями безопасных зависимостей.
+      allow: "security-updates"
