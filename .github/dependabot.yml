@@ -1,33 +1,9 @@
 version: 2
-
 updates:
-  - package-ecosystem: npm
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the `root` directory
     directory: "/"
+    # Check the npm registry for updates every day (weekdays)
     schedule:
-      interval: daily
-      time: "01:00"
-    versioning-strategy: auto
-    open-pull-requests-limit: 10
-    # Определяем группу зависимостей
-    groups:
-      - name: Frontend
-        # Указываем, какие типы обновлений использовать для этой группы 
-        applies-to: version-updates
-        # Определяем, какие зависимости включить в группу
-        patterns:
-          - react-*
-        # Определяем, какие зависимости исключить из группы
-        exclude-patterns:
-          - react-router-dom
-        # Определяем, какие типы обновлений включать (minor, patch, major)
-        update-types:
-          - minor
-          - patch
-      - name: Backend
-        applies-to: version-updates
-        patterns:
-          - express-*
-        update-types:
-          - major
-          - minor
-          - patch
+      interval: "daily"
