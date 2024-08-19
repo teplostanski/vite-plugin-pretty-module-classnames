@@ -6,25 +6,11 @@ updates:
     schedule:
       interval: daily
       time: "01:00"
-    # Настройка обновления версий.  
-    # "auto" - обновлять до последней версии 
-    # "lockfile-only" - не обновлять, только использовать lockfile 
     versioning-strategy: auto
-    # Используем `review` - для Pull-запросов требуются ваши комментарии и одобрения
     open-pull-requests-limit: 10
-    # Ищем уязвимости
-    # "allow" - допускаются только обновления безопасных версий.
-    # "ignore" - игнорируется все.
-    # "insecure" - разрешается обновление до любой версии.
-    # "auto" - автоматически обновляет до безопасной версии (использует "allow" по умолчанию).
-    # "never" - обновление отключено. 
+    # Security Advisories 
     security-advisories:
       allow: "security-advisories"
-    # "allow" - допускаются только обновления безопасных версий.
-    # "ignore" - игнорируется все.
-    # "insecure" - разрешается обновление до любой версии.
-    # "auto" - автоматически обновляет до безопасной версии (использует "allow" по умолчанию).
-    # "never" - обновление отключено. 
+    # Dependency Updates 
     dependency-updates:
-      # Ограничиваем Dependabot только обновлениями безопасных зависимостей.
-      allow: "security-updates" 
+      allow: "security-updates"
