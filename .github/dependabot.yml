@@ -3,18 +3,31 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: "/"
-    # Создаем группу "Frontend" для обновления всех фронтенд-зависимостей
+    schedule:
+      interval: daily
+      time: "01:00"
+    versioning-strategy: auto
+    open-pull-requests-limit: 10
+    # Определяем группу зависимостей
     groups:
       - name: Frontend
-        # Определяем, что эта группа относится к обновлениям версий
+        # Указываем, какие типы обновлений использовать для этой группы 
         applies-to: version-updates
-        # Включаем в группу зависимости, которые начинаются с "react-"
+        # Определяем, какие зависимости включить в группу
         patterns:
           - react-*
-        # Исключаем зависимость "react-router-dom"
+        # Определяем, какие зависимости исключить из группы
         exclude-patterns:
           - react-router-dom
-        # Ограничиваем группу только минорными и патч-обновлениями
+        # Определяем, какие типы обновлений включать (minor, patch, major)
         update-types:
           - minor
-          - patch 
+          - patch
+      - name: Backend
+        applies-to: version-updates
+        patterns:
+          - express-*
+        update-types:
+          - major
+          - minor
+          - patch
