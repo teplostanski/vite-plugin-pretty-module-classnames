@@ -60,7 +60,7 @@
     "prerelease:patch:beta": "npm run release -- --release-as patch --prerelease beta"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
+    "@types/node": "^22.4.2",
     "standard-version": "^9.5.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.10",
