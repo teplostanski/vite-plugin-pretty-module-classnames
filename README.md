@@ -97,9 +97,13 @@ The generated class names will look like:
 >
 > Additionally, in Vue files, the line count always starts from the `<style module>` tag, regardless of where it is placed within the file. This means that the line numbers in generated class names will be relative to the position of the `<style module>` tag, not the beginning of the file.
 
-## Contributing
+## 🤝 Contributing
+
+Want to contribute? Awesome! To show your support is to star the project, or to raise [issues on GitHub](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues).
 
 Before you contribute to the development of the project, read the [rules](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/blob/main/CONTRIBUTING.md).
+
+Thanks again for your support, it is much appreciated! 🙏
 
 <h2>License</h2>
 <a href="https://github.com/teplostanski/vite-plugin-pretty-module-classnames/blob/main/LICENSE">MIT</a> License © 2024 <a href="https://github.com/teplostanski">teplostanski</a>
