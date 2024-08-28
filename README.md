@@ -19,7 +19,7 @@ Included in the <a href='https://github.com/vitejs/awesome-vite'>Awesome Vite.js
 </p>
 </div>
 
-## Install
+## 📦 Installation
 
 [npmjs.com](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
 
@@ -44,10 +44,15 @@ Fortunately, the `vite-plugin-pretty-module-classnames` provides a solution to t
 
 ## Usege
 
+###### Api
 ```js
 // vite.config.js
 import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
+```
 
+###### Example
+```js
+// vite.config.js
 export default defineConfig({
   plugins: [prettyModuleClassnames()],
 });
@@ -59,8 +64,7 @@ export default defineConfig({
 
 The `lineNumber` option is a boolean that, when set to `true`, appends the line number where the CSS class is defined in the source file to the generated class name.
 
-#### Example Configuration
-
+###### Example
 ```js
 // vite.config.js
 import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
