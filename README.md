@@ -21,7 +21,7 @@ Included in the <a href='https://github.com/vitejs/awesome-vite'>Awesome Vite.js
 
 ## 📦 Installation
 
-[npmjs.com](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
+[npmjs.com](https://npmjs.com/package/vite-plugin-pretty-module-classnames) • [yarnpkg.com](https://yarnpkg.com/package?q=vite-plugin-pretty-module-classnames&name=vite-plugin-pretty-module-classnames)
 
 ```bash
 npm install -D vite-plugin-pretty-module-classnames
