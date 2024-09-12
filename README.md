@@ -30,10 +30,10 @@ npm install -D vite-plugin-pretty-module-classnames
 ## 🦾 Features
 
 - Framework-agnostic
-  - Tested: without frameworks, React, Vue
+  - Tested: `VanillaJS`, `React`, `Vue`
   - Potentially works with any framework. If you have any problems, write to the [Issue](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues)
-- Support CommonJS and ES Modules
-- Support Vite 2.x
+- Support `CommonJS` and `ES Modules`
+- Support `Vite 2.x`
 - Configurable: Added support for plugin configuration
 
 ## 🤔 Why Use This?
