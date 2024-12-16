@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-pretty-module-classnames",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Adds the filename without the -module suffix to the class names of CSS modules.",
   "type": "module",
   "main": "dist/index.cjs",

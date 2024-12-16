@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/compare/v1.3.0...v1.3.1) (2024-12-16)
+
+
+### Bug Fixes
+
+* Prevent plugin execution during vitest to avoid errors and warnings ([f5f35d7](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/commit/f5f35d707a1ccf8b49d8eed67d877dda871fced3))
+
 ## [1.3.0](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/compare/v2.0.0-beta.1...v1.3.0) (2024-09-09)
 
 ## [2.0.0-beta.1](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/compare/v2.0.0-beta.0...v2.0.0-beta.1) (2024-08-11)
