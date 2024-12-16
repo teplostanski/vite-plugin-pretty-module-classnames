@@ -50,7 +50,9 @@ function sanitizeModuleClassname(
  * @prop {boolean} `options.lineNumber` - Whether to include the line number in the generated class name. @default false
  * @returns {Plugin} A Vite plugin object with a custom configuration for CSS modules.
  */
-export default function PrettyModuleClassnames(options: { lineNumber?: boolean } = {}): Plugin {
+export default function PrettyModuleClassnames(
+  options: { lineNumber?: boolean } = {}
+): Plugin {
   return {
     name: "vite-plugin-pretty-module-classnames",
     /**
@@ -63,26 +65,34 @@ export default function PrettyModuleClassnames(options: { lineNumber?: boolean }
      * @returns {UserConfig} A modified Vite configuration object with custom settings for CSS module class name generation.
      */
     config(config: UserConfig): UserConfig {
+      const cssModules = config.css?.modules;
+
+      // Abort plugin execution when running vitest to avoid errors and warnings.
+      // See issue: https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues/57.
+      if (process.env.VITEST) {
+        return {} as UserConfig;
+      }
+
       if (
-        typeof config.css?.modules === "object" &&
-        config.css.modules.generateScopedName
+        cssModules &&
+        "generateScopedName" in cssModules &&
+        cssModules.generateScopedName
       ) {
-        throw new Error(
-          "Custom settings for generateScopedName are already set. The vite-plugin-pretty-module-classnames plugin cannot be used with other generateScopedName settings."
+        console.warn(
+          "[vite-plugin-pretty-module-classnames]:: The 'generateScopedName' configuration has already been set. Your vite.config configuration or other plugins might be attempting to override this setting, which could affect the proper functioning of vite-plugin-pretty-module-classnames."
         );
       }
 
-      // If generateScopedName is not set, apply the plugin's configuration
       const newCssConfig = {
         ...config.css,
         modules: {
-          ...config.css?.modules,
+          ...cssModules,
           generateScopedName: (name: string, filename: string, css: string) => {
             let lineNumber: number | undefined;
             if (options.lineNumber) {
-              const lines = css.split('\n');
+              const lines = css.split("\n");
               const match = new RegExp(`\\.${name}\\b`);
-              lineNumber = lines.findIndex(line => match.test(line)) + 1;
+              lineNumber = lines.findIndex((line) => match.test(line)) + 1;
             }
             return sanitizeModuleClassname(name, filename, lineNumber);
           },
