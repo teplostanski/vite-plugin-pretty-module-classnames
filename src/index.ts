@@ -34,9 +34,10 @@ function sanitizeModuleClassname(
 
   const baseFilename = lastSegment.replace(/(\.vue|\.module)?(\.\w+)$/, "");
 
+  const pathHash = getHash(parts.join('/'));
   const classname = `${baseFilename}__${name}`;
-  const hash = getHash(`${classname}`);
-  const lineInfo = lineNumber !== undefined ? `-${lineNumber}` : "";
+  const hash = getHash(`${pathHash}-${classname}`);
+  const lineInfo = lineNumber !== undefined ? `_${lineNumber}` : '';
 
   return `${classname}_${hash}${lineInfo}`;
 }
