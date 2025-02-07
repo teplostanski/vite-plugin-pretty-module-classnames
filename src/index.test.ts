@@ -1,43 +1,43 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { sanitizeModuleClassname } from './index.js'
+import { sanitizeModuleClassname, GENERATE_SCOPED_NAME_WARNING } from './index.js'
 import PrettyModuleClassnames from './index.js'
 import type { UserConfig } from 'vite'
 
 describe('sanitizeModuleClassname', () => {
-  it('должен генерировать корректное имя класса с номером строки', () => {
+  it('should generate correct class name with line number', () => {
     const result = sanitizeModuleClassname('button', 'src/components/Button.vue', 42)
     expect(result).toMatch(/^Button__button_[a-z0-9]+_42$/)
   })
 
-  it('должен генерировать корректное имя класса без номера строки', () => {
+  it('should generate correct class name without line number', () => {
     const result = sanitizeModuleClassname('header', 'src/components/Header.vue')
     expect(result).toMatch(/^Header__header_[a-z0-9]+$/)
   })
 
-  it('должен корректно обрабатывать файлы с расширением .module', () => {
+  it('should handle files with .module extension correctly', () => {
     const result = sanitizeModuleClassname('container', 'src/styles/Layout.module.css')
     expect(result).toMatch(/^Layout__container_[a-z0-9]+$/)
   })
 
-  it('должен выбрасывать ошибку при undefined filename', () => {
+  it('should throw error when filename is undefined', () => {
     expect(() => {
       sanitizeModuleClassname('test', undefined)
     }).toThrow('The filename must be string and cannot be undefined.')
   })
 
-  it('должен выбрасывать ошибку при некорректном пути файла', () => {
+  it('should throw error for invalid file path', () => {
     expect(() => {
       sanitizeModuleClassname('test', '/')
     }).toThrow('Filename must include a valid file name.')
   })
 
-  it('должен генерировать одинаковый хеш для одинаковых входных данных', () => {
+  it('should generate same hash for same input', () => {
     const result1 = sanitizeModuleClassname('button', 'src/components/Button.vue')
     const result2 = sanitizeModuleClassname('button', 'src/components/Button.vue')
     expect(result1).toBe(result2)
   })
 
-  it('должен генерировать разные хеши для разных путей', () => {
+  it('should generate different hashes for different paths', () => {
     const result1 = sanitizeModuleClassname('button', 'src/components/Button.vue')
     const result2 = sanitizeModuleClassname('button', 'src/elements/Button.vue')
     expect(result1).not.toBe(result2)
@@ -64,19 +64,19 @@ describe('PrettyModuleClassnames', () => {
     return plugin.config(config, { command: 'serve', mode: 'development' })
   }
 
-  it('должен создать плагин с корректным именем', () => {
+  it('should create plugin with correct name', () => {
     const plugin = PrettyModuleClassnames()
     expect(plugin.name).toBe('vite-plugin-pretty-module-classnames')
   })
 
-  it('должен вернуть пустой конфиг при запуске в vitest', () => {
+  it('should return empty config when running in vitest', () => {
     process.env.VITEST = 'true'
     const plugin = PrettyModuleClassnames()
     const result = callPluginConfig(plugin, {})
     expect(result).toEqual({})
   })
 
-  it('должен предупреждать если generateScopedName уже установлен', () => {
+  it('should warn when generateScopedName is already set', () => {
     const plugin = PrettyModuleClassnames()
     const config: UserConfig = {
       css: {
@@ -88,11 +88,11 @@ describe('PrettyModuleClassnames', () => {
     
     callPluginConfig(plugin, config)
     expect(consoleSpy).toHaveBeenCalledWith(
-      '[vite-plugin-pretty-module-classnames]:: The \'generateScopedName\' configuration has already been set. Your vite.config configuration or other plugins might be attempting to override this setting, which could affect the proper functioning of vite-plugin-pretty-module-classnames.'
+      GENERATE_SCOPED_NAME_WARNING
     )
   })
 
-  it('должен корректно настраивать generateScopedName без lineNumber', () => {
+  it('should configure generateScopedName correctly without lineNumber', () => {
     const plugin = PrettyModuleClassnames()
     const result = callPluginConfig(plugin, {})
     const generateScopedName = result.css?.modules?.generateScopedName
@@ -106,7 +106,7 @@ describe('PrettyModuleClassnames', () => {
     }
   })
 
-  it('должен добавлять номер строки когда включена опция lineNumber', () => {
+  it('should add line number when lineNumber option is enabled', () => {
     const plugin = PrettyModuleClassnames({ lineNumber: true })
     const result = callPluginConfig(plugin, {})
     const generateScopedName = result.css?.modules?.generateScopedName
@@ -125,7 +125,7 @@ describe('PrettyModuleClassnames', () => {
     }
   })
 
-  it('должен сохранять существующие настройки css', () => {
+  it('should preserve existing css settings', () => {
     const plugin = PrettyModuleClassnames()
     const existingConfig: UserConfig = {
       css: {
@@ -142,7 +142,7 @@ describe('PrettyModuleClassnames', () => {
       .toBe('@import "./vars.scss";')
   })
 
-  it('должен корректно обрабатывать отсутствие css.modules в конфиге', () => {
+  it('should handle missing css.modules in config', () => {
     const plugin = PrettyModuleClassnames()
     const result = callPluginConfig(plugin, { css: {} })
     const generateScopedName = result.css?.modules?.generateScopedName

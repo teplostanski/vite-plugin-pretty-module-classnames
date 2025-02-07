@@ -1,6 +1,8 @@
 import type { Plugin, UserConfig } from "vite";
 import { createHash } from "crypto";
 
+export const GENERATE_SCOPED_NAME_WARNING = '[vite-plugin-pretty-module-classnames]:: The \'generateScopedName\' configuration has already been set. Your vite.config configuration or other plugins might be attempting to override this setting, which could affect the proper functioning of vite-plugin-pretty-module-classnames.'
+
 function getHash(input: string): string {
   return createHash("sha256").update(input).digest("hex").slice(0, 5);
 }
@@ -80,7 +82,7 @@ export default function PrettyModuleClassnames(
         cssModules.generateScopedName
       ) {
         console.warn(
-          "[vite-plugin-pretty-module-classnames]:: The 'generateScopedName' configuration has already been set. Your vite.config configuration or other plugins might be attempting to override this setting, which could affect the proper functioning of vite-plugin-pretty-module-classnames."
+          GENERATE_SCOPED_NAME_WARNING
         );
       }
 
