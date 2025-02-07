@@ -6,9 +6,7 @@
 [<img alt="NPM Type Definitions" src="https://img.shields.io/npm/types/vite-plugin-pretty-module-classnames?style=flat-square&labelColor=1f2033">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
 [<img alt="NPM Downloads" src="https://img.shields.io/npm/dw/vite-plugin-pretty-module-classnames?style=flat-square&color=7F78D1&labelColor=1f2033">](https://npmjs.com/package/vite-plugin-pretty-module-classnames)
 [<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/teplostanski/vite-plugin-pretty-module-classnames?style=flat-square&labelColor=1f2033">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames)
-[<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/teplostanski/vite-plugin-pretty-module-classnames?style=flat-square&labelColor=1f2033">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames)
-[<img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/teplostanski/vite-plugin-pretty-module-classnames?style=flat-square&labelColor=1f2033">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues)
-[<img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-pr/teplostanski/vite-plugin-pretty-module-classnames?style=flat-square&labelColor=1f2033">](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/pulls)
+[<img alt="Coverage" src="https://codecov.io/gh/teplostanski/vite-plugin-pretty-module-classnames/graph/badge.svg?token=CQY9WXG41L">](https://codecov.io/gh/teplostanski/vite-plugin-pretty-module-classnames)
 
 </a>
 
@@ -45,12 +43,14 @@ Fortunately, the `vite-plugin-pretty-module-classnames` provides a solution to t
 ## ⚙️ Usege
 
 ###### Api
+
 ```js
 // vite.config.js
 import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
 ```
 
 ###### Example
+
 ```js
 // vite.config.js
 export default defineConfig({
@@ -65,6 +65,7 @@ export default defineConfig({
 The `lineNumber` option is a boolean that, when set to `true`, appends the line number where the CSS class is defined in the source file to the generated class name.
 
 ###### Example
+
 ```js
 // vite.config.js
 import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
@@ -89,8 +90,8 @@ With this configuration, if your CSS file contains:
 
 The generated class names will look like:
 
-- SomeComponent__wrapper_abcd1_1
-- SomeComponent__container_abcd2_5
+- SomeComponent\_\_wrapper_abcd1_1
+- SomeComponent\_\_container_abcd2_5
 
 > [!WARNING]
 > Please note that the `lineNumber` option mirrors the behavior of Vite's default class name generation when using preprocessors like Sass, Less, or Stylus. The line number is calculated based on the compiled CSS, where empty lines between selectors and comments are typically removed. This can lead to discrepancies between the line numbers in the source files and the compiled output, potentially resulting in inaccurate line numbers in the generated class names.
