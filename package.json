@@ -60,11 +60,13 @@
     "prerelease:patch:beta": "npm run release -- --release-as patch --prerelease beta",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
     "@vitest/coverage-v8": "^3.0.5",
+    "husky": "^9.1.7",
     "standard-version": "^9.5.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.10",
