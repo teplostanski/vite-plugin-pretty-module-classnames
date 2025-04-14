@@ -107,7 +107,7 @@ Before you contribute to the development of the project, read the [rules](https:
 Thanks again for your support, it is much appreciated! 🙏
 
 <h2> © License</h2>
-<a href="https://github.com/teplostanski/vite-plugin-pretty-module-classnames/blob/main/LICENSE">MIT</a> License © 2024 <a href="https://github.com/teplostanski">teplostanski</a>
+<a href="https://github.com/teplostanski/vite-plugin-pretty-module-classnames/blob/main/LICENSE">MIT</a> License © 2024-2025 <a href="https://github.com/teplostanski">teplostanski</a>
 
 <h2> ❤ Fund this project</h2>
 <a href="https://donate.teplostanski.dev" target="_blank">donate.teplostanski.dev</a>
