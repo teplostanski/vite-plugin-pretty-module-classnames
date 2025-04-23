@@ -1,11 +1,20 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "target": "esnext",
+    "lib": ["es2023"],
+    "moduleDetection": "force",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "strict": true,
+    "noUnusedLocals": true,
     "declaration": true,
-    "moduleResolution": "NodeNext",
-
+    "isolatedDeclarations": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }

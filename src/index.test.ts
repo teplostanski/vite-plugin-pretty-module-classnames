@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { sanitizeModuleClassname, GENERATE_SCOPED_NAME_WARNING } from './index.js'
 import PrettyModuleClassnames from './index.js'
 import type { UserConfig } from 'vite'
+import { GENERATE_SCOPED_NAME_WARNING } from './constants.js'
+import { sanitizeModuleClassname } from './utils.js'
 
 describe('sanitizeModuleClassname', () => {
   it('should generate correct class name with line number', () => {
