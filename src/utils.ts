@@ -1,7 +1,7 @@
-import { createHash } from "crypto";
+import { createHash } from 'crypto'
 
 function getHash(input: string): string {
-  return createHash("sha256").update(input).digest("hex").slice(0, 5);
+  return createHash('sha256').update(input).digest('hex').slice(0, 5)
 }
 
 /**
@@ -18,25 +18,25 @@ function getHash(input: string): string {
 export function sanitizeModuleClassname(
   name: string,
   filename: string | undefined,
-  lineNumber?: number
+  lineNumber?: number,
 ): string {
-  if (typeof filename !== "string") {
-    throw new Error("The filename must be string and cannot be undefined.");
+  if (typeof filename !== 'string') {
+    throw new Error('The filename must be string and cannot be undefined.')
   }
 
-  const parts = filename.split("?")[0].split("/");
-  const lastSegment = parts.pop();
+  const parts = filename.split('?')[0].split('/')
+  const lastSegment = parts.pop()
 
   if (!lastSegment) {
-    throw new Error("Filename must include a valid file name.");
+    throw new Error('Filename must include a valid file name.')
   }
 
-  const baseFilename = lastSegment.replace(/(\.vue|\.module)?(\.\w+)$/, "");
+  const baseFilename = lastSegment.replace(/(\.vue|\.module)?(\.\w+)$/, '')
 
-  const pathHash = getHash(parts.join("/"));
-  const classname = `${baseFilename}__${name}`;
-  const hash = getHash(`${pathHash}-${classname}`);
-  const lineInfo = lineNumber !== undefined ? `_${lineNumber}` : "";
+  const pathHash = getHash(parts.join('/'))
+  const classname = `${baseFilename}__${name}`
+  const hash = getHash(`${pathHash}-${classname}`)
+  const lineInfo = lineNumber !== undefined ? `_${lineNumber}` : ''
 
-  return `${classname}_${hash}${lineInfo}`;
+  return `${classname}_${hash}${lineInfo}`
 }

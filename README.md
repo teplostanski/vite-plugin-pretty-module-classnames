@@ -28,7 +28,7 @@ npm install -D vite-plugin-pretty-module-classnames
 ## 🦾 Features
 
 - Framework-agnostic
-  - Tested: `VanillaJS`, `React`, `Vue`
+  - Tested: ![VanillaJS](https://img.shields.io/badge/VanillaJS-%231f2033.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%231f2033.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vue](https://img.shields.io/badge/vue-%231f2033.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) <!--![Astro](https://img.shields.io/badge/Astro-%231f2033.svg?style=for-the-badge&logo=astro&logoColor=%23BC52EE)-->
   - Potentially works with any framework. If you have any problems, write to the [Issue](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues)
 - Support `CommonJS` and `ES Modules`
 - Support `Vite 2.x`
@@ -42,20 +42,16 @@ Fortunately, the `vite-plugin-pretty-module-classnames` provides a solution to t
 
 ## ⚙️ Usege
 
-###### Api
-
-```js
-// vite.config.js
-import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
-```
-
 ###### Example
 
 ```js
 // vite.config.js
+// ...
+import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
+
 export default defineConfig({
   plugins: [prettyModuleClassnames()],
-});
+})
 ```
 
 ## 🔧 Configuration
@@ -68,11 +64,11 @@ The `lineNumber` option is a boolean that, when set to `true`, appends the line 
 
 ```js
 // vite.config.js
-import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
+import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
 
 export default defineConfig({
   plugins: [prettyModuleClassnames({ lineNumber: true })],
-});
+})
 ```
 
 With this configuration, if your CSS file contains:

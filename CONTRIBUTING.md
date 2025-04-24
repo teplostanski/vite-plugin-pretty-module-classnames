@@ -32,4 +32,3 @@ Ensure all tests pass and write new tests if necessary for your changes. Tests h
 ## Conclusion
 
 Your contributions are highly valuable to the project, and we appreciate your time and efforts. If you have any questions or need assistance, feel free to reach out to the project maintainers.
-

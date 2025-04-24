@@ -6,17 +6,27 @@ import { sanitizeModuleClassname } from './utils.js'
 
 describe('sanitizeModuleClassname', () => {
   it('should generate correct class name with line number', () => {
-    const result = sanitizeModuleClassname('button', 'src/components/Button.vue', 42)
+    const result = sanitizeModuleClassname(
+      'button',
+      'src/components/Button.vue',
+      42,
+    )
     expect(result).toMatch(/^Button__button_[a-z0-9]+_42$/)
   })
 
   it('should generate correct class name without line number', () => {
-    const result = sanitizeModuleClassname('header', 'src/components/Header.vue')
+    const result = sanitizeModuleClassname(
+      'header',
+      'src/components/Header.vue',
+    )
     expect(result).toMatch(/^Header__header_[a-z0-9]+$/)
   })
 
   it('should handle files with .module extension correctly', () => {
-    const result = sanitizeModuleClassname('container', 'src/styles/Layout.module.css')
+    const result = sanitizeModuleClassname(
+      'container',
+      'src/styles/Layout.module.css',
+    )
     expect(result).toMatch(/^Layout__container_[a-z0-9]+$/)
   })
 
@@ -33,22 +43,32 @@ describe('sanitizeModuleClassname', () => {
   })
 
   it('should generate same hash for same input', () => {
-    const result1 = sanitizeModuleClassname('button', 'src/components/Button.vue')
-    const result2 = sanitizeModuleClassname('button', 'src/components/Button.vue')
+    const result1 = sanitizeModuleClassname(
+      'button',
+      'src/components/Button.vue',
+    )
+    const result2 = sanitizeModuleClassname(
+      'button',
+      'src/components/Button.vue',
+    )
     expect(result1).toBe(result2)
   })
 
   it('should generate different hashes for different paths', () => {
-    const result1 = sanitizeModuleClassname('button', 'src/components/Button.vue')
+    const result1 = sanitizeModuleClassname(
+      'button',
+      'src/components/Button.vue',
+    )
     const result2 = sanitizeModuleClassname('button', 'src/elements/Button.vue')
     expect(result1).not.toBe(result2)
   })
 })
 
 describe('PrettyModuleClassnames', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let consoleSpy: any
   let originalVitest: string | undefined
-  
+
   beforeEach(() => {
     consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
     originalVitest = process.env.VITEST
@@ -61,6 +81,7 @@ describe('PrettyModuleClassnames', () => {
     vi.clearAllMocks()
   })
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function callPluginConfig(plugin: any, config: UserConfig) {
     return plugin.config(config, { command: 'serve', mode: 'development' })
   }
@@ -82,27 +103,29 @@ describe('PrettyModuleClassnames', () => {
     const config: UserConfig = {
       css: {
         modules: {
-          generateScopedName: (name: string) => `test_${name}`
-        }
-      }
+          generateScopedName: (name: string) => `test_${name}`,
+        },
+      },
     }
-    
+
     callPluginConfig(plugin, config)
-    expect(consoleSpy).toHaveBeenCalledWith(
-      GENERATE_SCOPED_NAME_WARNING
-    )
+    expect(consoleSpy).toHaveBeenCalledWith(GENERATE_SCOPED_NAME_WARNING)
   })
 
   it('should configure generateScopedName correctly without lineNumber', () => {
     const plugin = PrettyModuleClassnames()
     const result = callPluginConfig(plugin, {})
     const generateScopedName = result.css?.modules?.generateScopedName
-    
+
     expect(generateScopedName).toBeDefined()
     expect(typeof generateScopedName).toBe('function')
-    
+
     if (generateScopedName) {
-      const name = generateScopedName('button', 'src/Button.vue', '.button { color: red; }')
+      const name = generateScopedName(
+        'button',
+        'src/Button.vue',
+        '.button { color: red; }',
+      )
       expect(name).toMatch(/^Button__button_[a-z0-9]+$/)
     }
   })
@@ -111,10 +134,10 @@ describe('PrettyModuleClassnames', () => {
     const plugin = PrettyModuleClassnames({ lineNumber: true })
     const result = callPluginConfig(plugin, {})
     const generateScopedName = result.css?.modules?.generateScopedName
-    
+
     expect(generateScopedName).toBeDefined()
     expect(typeof generateScopedName).toBe('function')
-    
+
     if (generateScopedName) {
       const css = `
         .other { color: blue; }
@@ -132,23 +155,24 @@ describe('PrettyModuleClassnames', () => {
       css: {
         preprocessorOptions: {
           scss: {
-            additionalData: '@import "./vars.scss";'
-          }
-        }
-      }
+            additionalData: '@import "./vars.scss";',
+          },
+        },
+      },
     }
-    
+
     const result = callPluginConfig(plugin, existingConfig)
-    expect(result.css?.preprocessorOptions?.scss?.additionalData)
-      .toBe('@import "./vars.scss";')
+    expect(result.css?.preprocessorOptions?.scss?.additionalData).toBe(
+      '@import "./vars.scss";',
+    )
   })
 
   it('should handle missing css.modules in config', () => {
     const plugin = PrettyModuleClassnames()
     const result = callPluginConfig(plugin, { css: {} })
     const generateScopedName = result.css?.modules?.generateScopedName
-    
+
     expect(generateScopedName).toBeDefined()
     expect(typeof generateScopedName).toBe('function')
   })
-}) 
+})

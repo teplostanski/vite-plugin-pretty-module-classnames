@@ -58,11 +58,11 @@
     "LICENSE"
   ],
   "scripts": {
-    "lint": "eslint --cache .",
+    "lint": "eslint src",
     "lint:fix": "npm run lint --fix",
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "format": "prettier --cache --write .",
+    "format": "prettier src/**/*.{js,ts,md} --write --no-error-on-unmatched-pattern",
     "prepublishOnly": "npm run build",
     "release": "standard-version",
     "release:major": "npm run release -- --release-as major",
@@ -82,18 +82,19 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^6.1.2",
-    "@sxzz/prettier-config": "^2.2.1",
+    "@eslint/js": "^9.0.0",
     "@types/node": "^20.12.7",
     "@vitest/coverage-v8": "^3.1.2",
     "eslint": "^9.25.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "standard-version": "^9.5.0",
     "tsdown": "^0.9.1",
     "typescript": "^5.8.3",
     "vite": "^6.3.2",
-    "vitest": "^3.1.2"
-  },
-  "prettier": "@sxzz/prettier-config"
+    "vitest": "^3.1.2",
+    "typescript-eslint": "^7.0.0"
+  }
 }

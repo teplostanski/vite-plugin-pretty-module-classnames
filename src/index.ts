@@ -1,6 +1,6 @@
-import type { Plugin, UserConfig } from "vite";
-import { GENERATE_SCOPED_NAME_WARNING } from "./constants";
-import { sanitizeModuleClassname } from "./utils";
+import type { Plugin, UserConfig } from 'vite'
+import { GENERATE_SCOPED_NAME_WARNING } from './constants'
+import { sanitizeModuleClassname } from './utils'
 
 /**
  * Adds the filename without the `-module` suffix to the class names of CSS modules.
@@ -12,10 +12,10 @@ import { sanitizeModuleClassname } from "./utils";
  * @returns {Plugin} A Vite plugin object with a custom configuration for CSS modules.
  */
 export default function PrettyModuleClassnames(
-  options: { lineNumber?: boolean } = {}
+  options: { lineNumber?: boolean } = {},
 ): Plugin {
   return {
-    name: "vite-plugin-pretty-module-classnames",
+    name: 'vite-plugin-pretty-module-classnames',
     /**
      * Modifies the Vite configuration object to include custom settings for CSS module class name generation.
      * It checks if generateScopedName is already set by the user and throws an error if so.
@@ -26,22 +26,20 @@ export default function PrettyModuleClassnames(
      * @returns {UserConfig} A modified Vite configuration object with custom settings for CSS module class name generation.
      */
     config(config: UserConfig): UserConfig {
-      const cssModules = config.css?.modules;
+      const cssModules = config.css?.modules
 
       // Abort plugin execution when running vitest to avoid errors and warnings.
       // See issue: https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues/57.
       if (process.env.VITEST) {
-        return {} as UserConfig;
+        return {} as UserConfig
       }
 
       if (
         cssModules &&
-        "generateScopedName" in cssModules &&
+        'generateScopedName' in cssModules &&
         cssModules.generateScopedName
       ) {
-        console.warn(
-          GENERATE_SCOPED_NAME_WARNING
-        );
+        console.warn(GENERATE_SCOPED_NAME_WARNING)
       }
 
       const newCssConfig = {
@@ -49,21 +47,21 @@ export default function PrettyModuleClassnames(
         modules: {
           ...cssModules,
           generateScopedName: (name: string, filename: string, css: string) => {
-            let lineNumber: number | undefined;
+            let lineNumber: number | undefined
             if (options.lineNumber) {
-              const lines = css.split("\n");
-              const match = new RegExp(`\\.${name}\\b`);
-              lineNumber = lines.findIndex((line) => match.test(line)) + 1;
+              const lines = css.split('\n')
+              const match = new RegExp(`\\.${name}\\b`)
+              lineNumber = lines.findIndex((line) => match.test(line)) + 1
             }
-            return sanitizeModuleClassname(name, filename, lineNumber);
+            return sanitizeModuleClassname(name, filename, lineNumber)
           },
         },
-      };
+      }
 
       return {
         ...config,
         css: newCssConfig,
-      };
+      }
     },
-  };
+  }
 }
