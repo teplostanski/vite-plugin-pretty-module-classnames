@@ -1,6 +1,7 @@
 import type { Plugin, UserConfig } from 'vite'
-import { GENERATE_SCOPED_NAME_WARNING } from './constants'
-import { sanitizeModuleClassname } from './utils'
+import { defaultOptions, GENERATE_SCOPED_NAME_WARNING } from './constants'
+import { deepMerge, getLineNumber, sanitizeModuleClassname } from './utils'
+import type { DeepPartial, Options } from './types'
 
 /**
  * Adds the filename without the `-module` suffix to the class names of CSS modules.
@@ -9,10 +10,13 @@ import { sanitizeModuleClassname } from './utils'
  *
  * @prop {Object} `options` - Plugin options.
  * @prop {boolean} `options.lineNumber` - Whether to include the line number in the generated class name. @default false
+ * @prop {string} `options.separator.beforeHash` - @default '_'
+ * @prop {string} `options.separator.beforeClassName` - @default '__'
+ * @prop {string} `options.separator.beforeLineNumber` - @default '-'
  * @returns {Plugin} A Vite plugin object with a custom configuration for CSS modules.
  */
-export default function PrettyModuleClassnames(
-  options: { lineNumber?: boolean } = {},
+export default function prettyModuleClassnames(
+  userOptions: DeepPartial<Options> = {},
 ): Plugin {
   return {
     name: 'vite-plugin-pretty-module-classnames',
@@ -26,6 +30,7 @@ export default function PrettyModuleClassnames(
      * @returns {UserConfig} A modified Vite configuration object with custom settings for CSS module class name generation.
      */
     config(config: UserConfig): UserConfig {
+      const options = deepMerge(defaultOptions, userOptions)
       const cssModules = config.css?.modules
 
       // Abort plugin execution when running vitest to avoid errors and warnings.
@@ -47,13 +52,15 @@ export default function PrettyModuleClassnames(
         modules: {
           ...cssModules,
           generateScopedName: (name: string, filename: string, css: string) => {
-            let lineNumber: number | undefined
-            if (options.lineNumber) {
-              const lines = css.split('\n')
-              const match = new RegExp(`\\.${name}\\b`)
-              lineNumber = lines.findIndex((line) => match.test(line)) + 1
-            }
-            return sanitizeModuleClassname(name, filename, lineNumber)
+            const lineNumber = options.lineNumber
+              ? getLineNumber(css, name)
+              : undefined
+            return sanitizeModuleClassname(
+              name,
+              filename,
+              options.separator,
+              lineNumber,
+            )
           },
         },
       }
