@@ -28,7 +28,7 @@ npm install -D vite-plugin-pretty-module-classnames
 ## 🦾 Features
 
 - Framework-agnostic
-  - Tested: `VanillaJS`, `React`, `Vue`
+  - Tested: ![VanillaJS](https://img.shields.io/badge/Vanilla_JS/TS-%231f2033.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%231f2033.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vue](https://img.shields.io/badge/vue-%231f2033.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) <!--![Astro](https://img.shields.io/badge/Astro-%231f2033.svg?style=for-the-badge&logo=astro&logoColor=%23BC52EE)-->
   - Potentially works with any framework. If you have any problems, write to the [Issue](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues)
 - Support `CommonJS` and `ES Modules`
 - Support `Vite 2.x`
@@ -42,23 +42,52 @@ Fortunately, the `vite-plugin-pretty-module-classnames` provides a solution to t
 
 ## ⚙️ Usege
 
-###### Api
-
-```js
-// vite.config.js
-import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
-```
-
 ###### Example
 
 ```js
 // vite.config.js
+// ...
+import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
+
 export default defineConfig({
   plugins: [prettyModuleClassnames()],
-});
+})
 ```
 
 ## 🔧 Configuration
+
+### `separator` Option
+
+The `separator` option allows you to customize the symbols used to join parts of the generated class name.  
+You can override any of the following fields (all are optional, defaults are shown):
+
+| Field              | Default | Description                                      |
+|--------------------|---------|--------------------------------------------------|
+| `beforeHash`       | `'_'`   | Separator before the hash part                   |
+| `beforeClassName`  | `'__'`  | Separator between filename and class name        |
+| `beforeLineNumber` | `'-'`   | Separator before the line number (if enabled)    |
+
+**Usage example:**
+```js
+import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
+
+export default defineConfig({
+  plugins: [
+    prettyModuleClassnames({
+      separator: {
+        beforeClassName: '--', // Use double dash instead of double underscore
+      }
+    })
+  ]
+})
+```
+
+This will generate class names like:  
+`SomeComponent--classname_abcd1`
+
+> You can provide only the fields you want to override; the rest will use default values.
+
+---
 
 ### `lineNumber` Option
 
@@ -68,11 +97,11 @@ The `lineNumber` option is a boolean that, when set to `true`, appends the line 
 
 ```js
 // vite.config.js
-import prettyModuleClassnames from "vite-plugin-pretty-module-classnames";
+import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
 
 export default defineConfig({
   plugins: [prettyModuleClassnames({ lineNumber: true })],
-});
+})
 ```
 
 With this configuration, if your CSS file contains:
@@ -90,8 +119,10 @@ With this configuration, if your CSS file contains:
 
 The generated class names will look like:
 
-- SomeComponent\_\_wrapper_abcd1_1
-- SomeComponent\_\_container_abcd2_5
+`SomeComponent__wrapper_abcd1-1`
+`SomeComponent__container_abcd2-5`
+
+<br>
 
 > [!IMPORTANT]
 > Please note that the `lineNumber` option mirrors the behavior of Vite's default class name generation when using preprocessors like Sass, Less, or Stylus. The line number is calculated based on the compiled CSS, where empty lines between selectors and comments are typically removed. This can lead to discrepancies between the line numbers in the source files and the compiled output, potentially resulting in inaccurate line numbers in the generated class names.

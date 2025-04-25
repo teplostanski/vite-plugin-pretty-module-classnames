@@ -1,6 +1,7 @@
-import type { Plugin, UserConfig } from "vite";
-import { GENERATE_SCOPED_NAME_WARNING } from "./constants";
-import { sanitizeModuleClassname } from "./utils";
+import type { Plugin, UserConfig } from 'vite'
+import { defaultOptions, GENERATE_SCOPED_NAME_WARNING } from './constants'
+import { deepMerge, getLineNumber, sanitizeModuleClassname } from './utils'
+import type { DeepPartial, Options } from './types'
 
 /**
  * Adds the filename without the `-module` suffix to the class names of CSS modules.
@@ -9,13 +10,16 @@ import { sanitizeModuleClassname } from "./utils";
  *
  * @prop {Object} `options` - Plugin options.
  * @prop {boolean} `options.lineNumber` - Whether to include the line number in the generated class name. @default false
+ * @prop {string} `options.separator.beforeHash` - @default '_'
+ * @prop {string} `options.separator.beforeClassName` - @default '__'
+ * @prop {string} `options.separator.beforeLineNumber` - @default '-'
  * @returns {Plugin} A Vite plugin object with a custom configuration for CSS modules.
  */
-export default function PrettyModuleClassnames(
-  options: { lineNumber?: boolean } = {}
+export default function prettyModuleClassnames(
+  userOptions: DeepPartial<Options> = {},
 ): Plugin {
   return {
-    name: "vite-plugin-pretty-module-classnames",
+    name: 'vite-plugin-pretty-module-classnames',
     /**
      * Modifies the Vite configuration object to include custom settings for CSS module class name generation.
      * It checks if generateScopedName is already set by the user and throws an error if so.
@@ -26,22 +30,21 @@ export default function PrettyModuleClassnames(
      * @returns {UserConfig} A modified Vite configuration object with custom settings for CSS module class name generation.
      */
     config(config: UserConfig): UserConfig {
-      const cssModules = config.css?.modules;
+      const options = deepMerge(defaultOptions, userOptions)
+      const cssModules = config.css?.modules
 
       // Abort plugin execution when running vitest to avoid errors and warnings.
       // See issue: https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues/57.
       if (process.env.VITEST) {
-        return {} as UserConfig;
+        return {} as UserConfig
       }
 
       if (
         cssModules &&
-        "generateScopedName" in cssModules &&
+        'generateScopedName' in cssModules &&
         cssModules.generateScopedName
       ) {
-        console.warn(
-          GENERATE_SCOPED_NAME_WARNING
-        );
+        console.warn(GENERATE_SCOPED_NAME_WARNING)
       }
 
       const newCssConfig = {
@@ -49,21 +52,23 @@ export default function PrettyModuleClassnames(
         modules: {
           ...cssModules,
           generateScopedName: (name: string, filename: string, css: string) => {
-            let lineNumber: number | undefined;
-            if (options.lineNumber) {
-              const lines = css.split("\n");
-              const match = new RegExp(`\\.${name}\\b`);
-              lineNumber = lines.findIndex((line) => match.test(line)) + 1;
-            }
-            return sanitizeModuleClassname(name, filename, lineNumber);
+            const lineNumber = options.lineNumber
+              ? getLineNumber(css, name)
+              : undefined
+            return sanitizeModuleClassname(
+              name,
+              filename,
+              options.separator,
+              lineNumber,
+            )
           },
         },
-      };
+      }
 
       return {
         ...config,
         css: newCssConfig,
-      };
+      }
     },
-  };
+  }
 }

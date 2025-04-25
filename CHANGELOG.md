@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/compare/v1.3.2...v1.4.0) (2025-04-25)
+
+
+### Features
+
+* add customizable separator option for class name generation ([b8d0a02](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/commit/b8d0a02f217c303fdebe982c0b99d5c2f66212f9))
+
 ### [1.3.2](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/compare/v1.3.1...v1.3.2) (2025-01-12)
 
 
