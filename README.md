@@ -1,3 +1,5 @@
+English | [Russian](./README.ru.md)
+
 <div align='center'>
 <h1>vite-plugin-pretty-module-classnames</h1>
 
@@ -62,7 +64,7 @@ export default defineConfig({
 
 ## 📚 Documentation
 
-For full documentation, visit [vite-plugin-pretty-module-classnames.teplostanski.dev](vite-plugin-pretty-module-classnames.teplostanski.dev).
+For full documentation, visit [vite-plugin-pretty-module-classnames.teplostanski.dev](vite-plugin-pretty-module-classnames.teplostanski.dev) [ EN | RU ].
 
 ## 🤝 Contributing
 

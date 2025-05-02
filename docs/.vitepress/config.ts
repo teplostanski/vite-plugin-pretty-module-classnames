@@ -7,15 +7,15 @@ const versionNav = [
 
 const enNav = [
   { text: 'Home', link: '/' },
-  { text: 'Get Started', link: '/guide/' },
-  { text: 'Options', link: '/options/line-number' },
+  { text: 'Guide', link: '/guide/' },
+  { text: 'Options', link: '/options/' },
   ...versionNav
 ];
 
 const ruNav = [
   { text: 'Главная', link: '/ru/' },
-  { text: 'Начало', link: '/ru/guide/' },
-  { text: 'Опции', link: '/ru/options/line-number' },
+  { text: 'Руководство', link: '/ru/guide/' },
+  { text: 'Опции', link: '/ru/options/' },
   ...versionNav
 ];
 
@@ -41,12 +41,13 @@ export default defineConfig({
             text: 'Guide',
             items: [
               { text: 'Introduction', link: '/guide/' },
-              { text: 'Getting Started', link: '/guide/getting-started' }
+              { text: 'Installation', link: '/guide/getting-started' }
             ]
           },
           {
-            text: 'Options',
+            text: 'Конфигурация',
             items: [
+              { text: 'Options', link: '/options/' },
               { text: 'Line Number', link: '/options/line-number' },
               { text: 'Separator', link: '/options/separator' }
             ]
@@ -69,14 +70,15 @@ export default defineConfig({
             text: 'Руководство',
             items: [
               { text: 'Введение', link: '/ru/guide/' },
-              { text: 'Начало', link: '/ru/guide/getting-started' }
+              { text: 'Установка', link: '/ru/guide/getting-started' }
             ]
           },
           {
-            text: 'Опции',
+            text: 'Конфигурация',
             items: [
+              { text: 'Опции', link: '/ru/options/' },
               { text: 'Номер строки', link: '/ru/options/line-number' },
-              { text: 'Разделитель', link: '/ru/options/separator' }
+              { text: 'Разделители', link: '/ru/options/separator' }
             ]
           },
         ],

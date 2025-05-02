@@ -17,7 +17,7 @@ export default defineConfig({
   plugins: [
     prettyModuleClassnames({
       separator: {
-        beforeClassName: '--', // Использовать двойное тире вместо двойного подчёркивания
+        beforeClassName: '--', // Использует двойное тире вместо двойного подчёркивания
       }
     })
   ]
@@ -27,4 +27,5 @@ export default defineConfig({
 В этом случае имена классов будут выглядеть так:
 `SomeComponent--classname_abcd1`
 
+> [!TIP]
 > Вы можете указывать только те поля, которые хотите переопределить; остальные будут использовать значения по умолчанию.

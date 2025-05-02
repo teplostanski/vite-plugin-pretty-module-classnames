@@ -8,18 +8,41 @@ hero:
   tagline: "Плагин автоматически добавляет имя файла модуля и другую полезную информацию к именам классов для удобной разработки."
   actions:
     - theme: brand
-      text: Начало
+      text: Поехали 🚀
       link: /ru/guide/
     - theme: alt
       text: Опции
-      link: /ru/options/line-number
+      link: /ru/options/
 
 features:
-  - title: Framework-agnostic
-    details: Tested Vanilla JS/TS React Vue
-  - title: Feature B
-    details: Support `CommonJS` and `ES Modules`
-  - title: Configurable
-    details: Added support for plugin configuration
+  - title: Не зависит от фреймворка
+    details: Проверено на проектах с ванильным JS/TS, React и Vue
+  - title: Универсальный
+    details: Совместим с CommonJS и ES Modules
+  - title: Настраиваемый
+    details: Гибкая настройка через объект параметров
 ---
 
+## Начало работы
+
+Добавьте плагин в свой проект, используя любимый пакетный менеджер!
+
+::: code-group
+
+```sh [npm]
+npm install -D vite-plugin-pretty-module-classnames
+```
+
+```sh [yarn]
+yarn add -D vite-plugin-pretty-module-classnames
+```
+
+```sh [pnpm]
+pnpm add -D vite-plugin-pretty-module-classnames
+```
+
+```sh [bun]
+bun add -d vite-plugin-pretty-module-classnames
+```
+
+:::
