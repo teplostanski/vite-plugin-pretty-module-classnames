@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-pretty-module-classnames",
   "version": "1.4.0",
-  "description": "Adds the filename without the -module suffix to the class names of CSS modules.",
+  "description": "Make your scoped CSS module class names clear and readable — this plugin automatically adds the module filename and other useful info to class names for easier development.",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -79,7 +79,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
@@ -95,6 +98,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.31.0",
     "vite": "^6.3.2",
+    "vitepress": "^2.0.0-alpha.5",
     "vitest": "^3.1.2"
   }
 }
