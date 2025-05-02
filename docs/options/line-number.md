@@ -1,6 +1,6 @@
 # lineNumber
 
-The `lineNumber` option is a boolean that, when set to `true`, appends the line number where the CSS class is defined in the source file to the generated class name.
+The `lineNumber` option adds the line number where the class is declared in the source file to the class name.
 
 ## Example
 
@@ -12,8 +12,7 @@ export default defineConfig({
 })
 ```
 
-With this configuration, if your CSS file contains:
-
+If your CSS file looks like this:
 
 ```css [SomeComponent.module.css]
 1 .wrapper {
@@ -25,15 +24,14 @@ With this configuration, if your CSS file contains:
 7 }
 ```
 
-
-The generated class names will look like:
+The resulting class names will be:
 
 - `SomeComponent__wrapper_abcd1-1`
 - `SomeComponent__container_abcd2-5`
 
 <br>
 
-> [!IMPORTANT]
-> Please note that the `lineNumber` option mirrors the behavior of Vite's default class name generation when using preprocessors like Sass, Less, or Stylus. The line number is calculated based on the compiled CSS, where empty lines between selectors and comments are typically removed. This can lead to discrepancies between the line numbers in the source files and the compiled output, potentially resulting in inaccurate line numbers in the generated class names.
+> [!IMPORTANT] Please note:
+> The `lineNumber` option works the same way as Vite's standard class name generation when using preprocessors (Sass, Less, Stylus). The line number is taken from the generated CSS, where empty lines and comments are usually removed. Therefore, the line numbers in class names may not match the line numbers in the source files.
 >
-> Additionally, in Vue files, the line count always starts from the `<style module>` tag, regardless of where it is placed within the file. This means that the line numbers in generated class names will be relative to the position of the `<style module>` tag, not the beginning of the file.
+> In `.vue` files, line counting always starts from the `<style module>` tag, regardless of where it is located in the file. So the line number in the class name will be counted from the beginning of the `<style module>` block, not from the beginning of the entire file.

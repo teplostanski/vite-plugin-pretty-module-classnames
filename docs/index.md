@@ -12,14 +12,37 @@ hero:
       link: /guide/
     - theme: alt
       text: Options
-      link: /options/line-number
+      link: /options/
 
 features:
   - title: Framework-agnostic
-    details: Tested Vanilla JS/TS React Vue
-  - title: Feature B
-    details: Support `CommonJS` and `ES Modules`
-  - title: Configurable
-    details: Added support for plugin configuration
+    details: Tested on projects with vanilla JS/TS, React, and Vue
+  - title: Universal
+    details: Compatible with both CommonJS and ES Modules
+  - title: Customizable
+    details: Flexible configuration through options object
 ---
 
+## Getting Started
+
+Add the plugin to your project using your favorite package manager!
+
+::: code-group
+
+```sh [npm]
+npm install -D vite-plugin-pretty-module-classnames
+```
+
+```sh [yarn]
+yarn add -D vite-plugin-pretty-module-classnames
+```
+
+```sh [pnpm]
+pnpm add -D vite-plugin-pretty-module-classnames
+```
+
+```sh [bun]
+bun add -d vite-plugin-pretty-module-classnames
+```
+
+:::
