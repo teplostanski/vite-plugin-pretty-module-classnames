@@ -85,7 +85,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@eslint/js": "^9.0.0",
+    "@eslint/js": "^9.26.0",
     "@types/node": "^22.15.2",
     "@vitest/coverage-v8": "^3.1.2",
     "eslint": "^9.25.1",
