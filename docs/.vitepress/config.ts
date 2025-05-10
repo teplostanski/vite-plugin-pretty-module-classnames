@@ -28,7 +28,8 @@ export default defineConfig({
   description: "Make your scoped CSS module class names clear and readable — this plugin automatically adds the module filename and other useful info to class names for easier development.",
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
-    // другие элементы head
+    ['meta', { name: 'yandex-verification', content: 'b169cb710bf58bb1' }],
+  // другие элементы head
   ],
   locales: {
     root: {
