@@ -26,4 +26,4 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: teplostanski/vite-plugin-pretty-module-classnames
+          slug: teplostanski/vite-plugin-readable-classnames

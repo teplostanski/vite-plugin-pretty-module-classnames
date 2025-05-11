@@ -3,19 +3,19 @@
 ::: code-group
 
 ```sh [npm]
-npm install -D vite-plugin-pretty-module-classnames
+npm install -D vite-plugin-readable-classnames
 ```
 
 ```sh [yarn]
-yarn add -D vite-plugin-pretty-module-classnames
+yarn add -D vite-plugin-readable-classnames
 ```
 
 ```sh [pnpm]
-pnpm add -D vite-plugin-pretty-module-classnames
+pnpm add -D vite-plugin-readable-classnames
 ```
 
 ```sh [bun]
-bun add -d vite-plugin-pretty-module-classnames
+bun add -d vite-plugin-readable-classnames
 ```
 
 :::

@@ -1,104 +1,61 @@
-import { defineConfig, useRoute } from 'vitepress'
-import pkg from '../../package.json'
+import { defineConfig } from 'vitepress'
+import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
+import { qrcode } from 'vite-plugin-qrcode';
+import { nav, enNav, ruNav } from './theme/configs/nav';
+import { sidebarEn, sidebarRu } from './theme/configs/sidebar';
+import {translate} from './i18n'
 
-const versionNav = [
-  { text: `v${pkg.version}`, link: `https://github.com/teplostanski/vite-plugin-pretty-module-classnames/releases/tag/v${pkg.version}` }
-];
-
-const enNav = [
-  { text: 'Home', link: '/' },
-  { text: 'Guide', link: '/guide/' },
-  { text: 'Options', link: '/options/' },
-  ...versionNav
-];
-
-const ruNav = [
-  { text: 'Главная', link: '/ru/' },
-  { text: 'Руководство', link: '/ru/guide/' },
-  { text: 'Опции', link: '/ru/options/' },
-  ...versionNav
-];
+const en = translate('en')
+const ru = translate('ru')
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
-  title: "Pretty Module Classnames",
-  description: "Make your scoped CSS module class names clear and readable — this plugin automatically adds the module filename and other useful info to class names for easier development.",
+  title: "Readable Classnames",
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ['meta', { name: 'yandex-verification', content: 'b169cb710bf58bb1' }],
-  // другие элементы head
   ],
   locales: {
     root: {
-      label: 'English',
+      description: en('description'),
+      label: en('label'),
       lang: 'en',
       themeConfig: {
-        nav: enNav,
-        sidebar: [
-          {
-            text: 'Guide',
-            items: [
-              { text: 'Introduction', link: '/guide/' },
-              { text: 'Installation', link: '/guide/getting-started' }
-            ]
-          },
-          {
-            text: 'Конфигурация',
-            items: [
-              { text: 'Options', link: '/options/' },
-              { text: 'Line Number', link: '/options/line-number' },
-              { text: 'Separator', link: '/options/separator' }
-            ]
-          },
-        ],
+        nav: nav(enNav),
+        sidebar: sidebarEn(),
         footer: {
-          message: 'Released under the MIT License.',
-          copyright: 'Copyright © 2024-present, Igor Teplostanski',
+          message: en('footer.message'),
+          copyright: en('footer.copyright'),
         },
       }
     },
     ru: {
-      label: 'Русский',
-      lang: 'ru',
+      description: ru('description'),
+      label: ru('label'),
+      lang: ru('lang'),
       link: '/ru/',
       themeConfig: {
-        nav: ruNav,
-        sidebar: [
-          {
-            text: 'Руководство',
-            items: [
-              { text: 'Введение', link: '/ru/guide/' },
-              { text: 'Установка', link: '/ru/guide/getting-started' }
-            ]
-          },
-          {
-            text: 'Конфигурация',
-            items: [
-              { text: 'Опции', link: '/ru/options/' },
-              { text: 'Номер строки', link: '/ru/options/line-number' },
-              { text: 'Разделители', link: '/ru/options/separator' }
-            ]
-          },
-        ],
+        nav: nav(ruNav),
+        sidebar: sidebarRu(),
         outline: {
-          label: 'Навигация по странице',
+          label: ru('outline.label'),
           level: 'deep',
         },
-        lastUpdatedText: 'Последнее обновление',
-        darkModeSwitchLabel: 'Тема',
-        sidebarMenuLabel: 'Меню',
-        returnToTopLabel: 'Наверх',
-        langMenuLabel: 'Выбрать язык',
+        lastUpdatedText: ru('lastUpdatedText'),
+        darkModeSwitchLabel: ru('darkModeSwitchLabel'),
+        sidebarMenuLabel: ru('sidebarMenuLabel'),
+        returnToTopLabel: ru('returnToTopLabel'),
+        langMenuLabel: ru('langMenuLabel'),
         docFooter: {
-          prev: 'Предыдущая страница',
-          next: 'Следующая страница',
+          prev: ru('docFooter.prev'),
+          next: ru('docFooter.next'),
         },
         footer: {
-          message: 'Опубликовано под лицензией MIT.',
-          copyright: '© 2024 – настоящее время, Игорь Теплостанский',
+          message: ru('footer.message'),
+          copyright: ru('footer.copyright'),
         },
       }
     }
@@ -106,8 +63,21 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/teplostanski/vite-plugin-pretty-module-classnames' },
-      { icon: 'npm', link: 'https://www.npmjs.com/package/vite-plugin-pretty-module-classnames' }
+      { icon: 'github', link: 'https://github.com/teplostanski/vite-plugin-readable-classnames' },
+      { icon: 'npm', link: 'https://www.npmjs.com/package/vite-plugin-readable-classnames' },
+      { icon: 'awesomelists', link: 'https://github.com/vitejs/awesome-vite' }
+    ],
+  },
+  
+  markdown: {
+    config(md) {
+      md.use(groupIconMdPlugin)
+    },
+  },
+  vite: {
+    plugins: [
+      groupIconVitePlugin(),
+      qrcode()
     ],
   }
 })
