@@ -33,6 +33,29 @@ pnpm add -D vite-plugin-readable-classnames
 bun add -d vite-plugin-readable-classnames
 ```
 
+## Migration from vite-plugin-pretty-module-classnames
+
+`vite-plugin-readable-classnames` is the new identity for `vite-plugin-pretty-module-classnames`. This guide will help you migrate from `vite-plugin-pretty-module-classnames` to `vite-plugin-readable-classnames`.
+
+1. Uninstall the old plugin and install the new one
+
+```sh [npm]
+npm uninstall vite-plugin-pretty-module-classnames
+npm install -D vite-plugin-readable-classnames
+```
+
+2. Update the import and plugin usage in your `vite.config.js` or `vite.config.ts`
+
+```diff
+- import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
++ import readableClassnames from 'vite-plugin-readable-classnames'
+
+export default defineConfig {
+-  plugins: [prettyModuleClassnames()]
++  plugins: [readableClassnames()]
+}
+```
+
 ## 🦾 Features
 
 - Framework-agnostic:

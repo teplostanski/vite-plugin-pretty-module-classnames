@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/teplostanski/vite-plugin-readable-classnames/compare/v1.4.0...v1.5.0) (2025-05-11)
+
+
+### Features
+
+* add custon i18n functions ([390871c](https://github.com/teplostanski/vite-plugin-readable-classnames/commit/390871cfdf09eb3626c92a9dd27c2fadf3018ddb))
+
 ## [1.4.0](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/compare/v1.3.2...v1.4.0) (2025-04-25)
 
 
