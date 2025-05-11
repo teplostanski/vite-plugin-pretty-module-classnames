@@ -5,10 +5,10 @@ The `lineNumber` option adds the line number where the class is declared in the 
 ## Example
 
 ```js [vite.config.js]
-import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
+import readableClassnames from 'vite-plugin-readable-classnames'
 
 export default defineConfig({
-  plugins: [prettyModuleClassnames({ lineNumber: true })],
+  plugins: [readableClassnames({ lineNumber: true })],
 })
 ```
 

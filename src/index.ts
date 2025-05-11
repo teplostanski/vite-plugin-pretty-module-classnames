@@ -15,11 +15,11 @@ import type { DeepPartial, Options } from './types'
  * @prop {string} `options.separator.beforeLineNumber` - @default '-'
  * @returns {Plugin} A Vite plugin object with a custom configuration for CSS modules.
  */
-export default function prettyModuleClassnames(
+export default function readableClassnames(
   userOptions: DeepPartial<Options> = {},
 ): Plugin {
   return {
-    name: 'vite-plugin-pretty-module-classnames',
+    name: 'vite-plugin-readable-classnames',
     /**
      * Modifies the Vite configuration object to include custom settings for CSS module class name generation.
      * It checks if generateScopedName is already set by the user and throws an error if so.
@@ -34,7 +34,7 @@ export default function prettyModuleClassnames(
       const cssModules = config.css?.modules
 
       // Abort plugin execution when running vitest to avoid errors and warnings.
-      // See issue: https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues/57.
+      // See issue: https://github.com/teplostanski/vite-plugin-readable-classnames/issues/57.
       if (process.env.VITEST) {
         return {} as UserConfig
       }

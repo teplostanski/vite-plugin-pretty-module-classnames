@@ -13,9 +13,10 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
-  title: "Pretty Module Classnames",
+  title: "Readable Classnames",
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['meta', { name: 'yandex-verification', content: 'b169cb710bf58bb1' }],
   ],
   locales: {
     root: {
@@ -62,8 +63,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/teplostanski/vite-plugin-pretty-module-classnames' },
-      { icon: 'npm', link: 'https://www.npmjs.com/package/vite-plugin-pretty-module-classnames' },
+      { icon: 'github', link: 'https://github.com/teplostanski/vite-plugin-readable-classnames' },
+      { icon: 'npm', link: 'https://www.npmjs.com/package/vite-plugin-readable-classnames' },
       { icon: 'awesomelists', link: 'https://github.com/vitejs/awesome-vite' }
     ],
   },

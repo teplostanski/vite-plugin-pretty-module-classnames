@@ -1,10 +1,10 @@
-# Contributing to vite-plugin-pretty-module-classnames
+# Contributing to vite-plugin-readable-classnames
 
-We're excited that you're interested in contributing to the `vite-plugin-pretty-module-classnames`! All types of contributions are welcome: bug reports, feature requests, documentation updates, and code improvements.
+We're excited that you're interested in contributing to the `vite-plugin-readable-classnames`! All types of contributions are welcome: bug reports, feature requests, documentation updates, and code improvements.
 
 ## Reporting Bugs
 
-Before reporting a bug, please check if it has already been reported. You can search through existing issues [here](https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues).
+Before reporting a bug, please check if it has already been reported. You can search through existing issues [here](https://github.com/teplostanski/vite-plugin-readable-classnames/issues).
 
 If you find a new issue and believe it's a bug, please open a new issue. Include as many details as possible, describe the problem, and provide steps to reproduce it, ideally with code or screenshots.
 

@@ -9,11 +9,11 @@ Currently, the following parameters are available:
 Usage example:
 
 ```js
-import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
+import readableClassnames from 'vite-plugin-readable-classnames'
 
 export default defineConfig({
   plugins: [
-    prettyModuleClassnames({
+    readableClassnames({
       lineNumber: true,
       separator: {
         beforeClassName: '--'

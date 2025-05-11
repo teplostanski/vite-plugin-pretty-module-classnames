@@ -11,11 +11,11 @@
 
 **Пример использования:**
 ```js
-import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
+import readableClassnames from 'vite-plugin-readable-classnames'
 
 export default defineConfig({
   plugins: [
-    prettyModuleClassnames({
+    readableClassnames({
       separator: {
         beforeClassName: '--', // Использует двойное тире вместо двойного подчёркивания
       }

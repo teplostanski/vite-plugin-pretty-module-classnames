@@ -11,11 +11,11 @@ You can override any of the following fields (all are optional, default values a
 
 **Usage example:**
 ```js
-import prettyModuleClassnames from 'vite-plugin-pretty-module-classnames'
+import readableClassnames from 'vite-plugin-readable-classnames'
 
 export default defineConfig({
   plugins: [
-    prettyModuleClassnames({
+    readableClassnames({
       separator: {
         beforeClassName: '--', // Uses double dash instead of double underscore
       }

@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-pretty-module-classnames",
+  "name": "vite-plugin-readable-classnames",
   "version": "1.4.0",
   "description": "Make your scoped CSS module class names clear and readable — this plugin automatically adds the module filename and other useful info to class names for easier development.",
   "type": "module",
@@ -36,11 +36,11 @@
     "css module name",
     "scss module class name"
   ],
-  "homepage": "https://github.com/teplostanski/vite-plugin-pretty-module-classnames#readme",
-  "bugs": "https://github.com/teplostanski/vite-plugin-pretty-module-classnames/issues",
+  "homepage": "https://github.com/teplostanski/vite-plugin-readable-classnames#readme",
+  "bugs": "https://github.com/teplostanski/vite-plugin-readable-classnames/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/teplostanski/vite-plugin-pretty-module-classnames.git"
+    "url": "git+https://github.com/teplostanski/vite-plugin-readable-classnames.git"
   },
   "author": {
     "name": "Igor Teplostanski",
