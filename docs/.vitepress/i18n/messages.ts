@@ -1,5 +1,6 @@
-const messages = {
+export const messages = {
   en: {
+    description: "Make your scoped CSS module class names clear and readable — this plugin automatically adds the module filename and other useful info to class names for easier development.",
     label: 'English',
     lang: 'en',
     nav: {
@@ -27,6 +28,7 @@ const messages = {
   },
   
   ru: {
+    description: "Сделайте имена классов CSS-модулей понятными и читаемыми- плагин автоматически добавляет имя файла модуля и другую полезную информацию к именам классов для удобной разработки.",
     label: 'Русский',
     lang: 'ru',
     nav: {

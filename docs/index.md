@@ -15,11 +15,14 @@ hero:
       link: /options/
 
 features:
-  - title: Framework-agnostic
+  - icon: ♻️
+    title: Framework-agnostic
     details: Tested on projects with vanilla JS/TS, React, and Vue
-  - title: Universal
+  - icon: ✨
+    title: Universal
     details: Compatible with both CommonJS and ES Modules
-  - title: Customizable
+  - icon: 🔧
+    title: Customizable
     details: Flexible configuration through options object
 ---
 
