@@ -13,7 +13,7 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
-  title: "Readable Classnames",
+  title: "Vite Plugin Readable Classnames",
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'yandex-verification', content: 'b169cb710bf58bb1' }],
