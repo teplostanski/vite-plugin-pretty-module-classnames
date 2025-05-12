@@ -18,6 +18,9 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'yandex-verification', content: 'b169cb710bf58bb1' }],
   ],
+  sitemap: {
+    hostname: 'https://vite-plugin-readable-classnames.teplostanski.dev'
+  }
   locales: {
     root: {
       description: en('description'),
