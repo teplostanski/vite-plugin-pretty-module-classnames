@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vite-plugin-readable-classnames.teplostanski.dev/sitemap.xml
