@@ -15,7 +15,7 @@ export default defineConfig({
   metaChunk: true,
   title: "Readable Classnames",
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'yandex-verification', content: 'b169cb710bf58bb1' }],
   ],
   locales: {
