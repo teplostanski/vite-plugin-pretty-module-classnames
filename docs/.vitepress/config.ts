@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   sitemap: {
     hostname: 'https://vite-plugin-readable-classnames.teplostanski.dev'
-  }
+  },
   locales: {
     root: {
       description: en('description'),
