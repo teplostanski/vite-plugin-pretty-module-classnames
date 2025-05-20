@@ -36,7 +36,7 @@
     "css module name",
     "scss module class name"
   ],
-  "homepage": "https://github.com/teplostanski/vite-plugin-readable-classnames#readme",
+  "homepage": "https://vite-plugin-readable-classnames.teplostanski.dev",
   "bugs": "https://github.com/teplostanski/vite-plugin-readable-classnames/issues",
   "repository": {
     "type": "git",
