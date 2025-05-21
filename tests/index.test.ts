@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import readableClassnames from '../src/index.js'
 import type { UserConfig } from 'vite'
-import { GENERATE_SCOPED_NAME_WARNING } from '../src/constants.js'
+import { WARNING_MSG_GENERATE_SCOPED_NAME } from '../src/constants.js'
 
 describe('readableClassnames', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -48,7 +48,7 @@ describe('readableClassnames', () => {
     }
 
     callPluginConfig(plugin, config)
-    expect(consoleSpy).toHaveBeenCalledWith(GENERATE_SCOPED_NAME_WARNING)
+    expect(consoleSpy).toHaveBeenCalledWith(WARNING_MSG_GENERATE_SCOPED_NAME)
   })
 
   it('should configure generateScopedName correctly without lineNumber', () => {

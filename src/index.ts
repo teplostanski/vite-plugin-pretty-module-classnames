@@ -1,5 +1,5 @@
 import type { Plugin, UserConfig } from 'vite'
-import { defaultOptions, GENERATE_SCOPED_NAME_WARNING } from './constants'
+import { defaultOptions, WARNING_MSG_GENERATE_SCOPED_NAME } from './constants'
 import { deepMerge, getLineNumber, sanitizeModuleClassname } from './utils'
 import type { DeepPartial, Options } from './types'
 
@@ -20,15 +20,6 @@ export default function readableClassnames(
 ): Plugin {
   return {
     name: 'vite-plugin-readable-classnames',
-    /**
-     * Modifies the Vite configuration object to include custom settings for CSS module class name generation.
-     * It checks if generateScopedName is already set by the user and throws an error if so.
-     * If not set, it applies a custom generateScopedName function.
-     *
-     * @param {UserConfig} config - The original Vite configuration provided by the user.
-     * @throws {Error} Throws an error if generateScopedName is already defined in the user's configuration.
-     * @returns {UserConfig} A modified Vite configuration object with custom settings for CSS module class name generation.
-     */
     config(config: UserConfig): UserConfig {
       const options = deepMerge(defaultOptions, userOptions)
       const cssModules = config.css?.modules
@@ -44,7 +35,7 @@ export default function readableClassnames(
         'generateScopedName' in cssModules &&
         cssModules.generateScopedName
       ) {
-        console.warn(GENERATE_SCOPED_NAME_WARNING)
+        console.warn(WARNING_MSG_GENERATE_SCOPED_NAME)
       }
 
       const newCssConfig = {
