@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-readable-classnames",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Make your scoped CSS module class names clear and readable — this plugin automatically adds the module filename and other useful info to class names for easier development.",
   "type": "module",
   "main": "./dist/index.cjs",
